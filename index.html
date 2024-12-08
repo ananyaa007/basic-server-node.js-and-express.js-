@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adjustable Website</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        background-image: url('https://w0.peakpx.com/wallpaper/115/408/HD-wallpaper-iceberg-minimalist.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #333;
+    }
+    header {
+        background-color: rgba(39, 44, 44, 0.774);
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    header h1 {
+        margin: 0;
+        font-size: 3em;
+    }
+    nav {
+        margin: 20px 0;
+        text-align: center;
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.2em;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav a:hover {
+        color: #f4f4f4;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .overlay {
+        background-color: rgba(128, 114, 114, 0.178);
+        padding: 50px 0;
+        display: none;
+        transition: opacity 0.3s ease;
+    }
+    .overlay.active {
+        display: block;
+    }
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .menu-item {
+        width: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .menu-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    }
+    .menu-item img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+    }
+    .menu-item-info {
+        padding: 20px;
+        text-align: center;
+    }
+    .menu-item h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+        color: #333;
+    }
+    .menu-item p {
+        margin-bottom: 15px;
+        color: #666;
+    }
+    button {
+        background-color: #39a7e1;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #297a9b;
+    }
+    form {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    form label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    form button {
+        background-color: #39a7e1;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2em;
+        transition: background-color 0.3s ease;
+    }
+    form button:hover {
+        background-color: #297a9b;
+    }
+    @media (max-width: 768px) {
+        .menu-item {
+            width: calc(50% - 20px);
+        }
+    }
+    @media (max-width: 480px) {
+        .menu-item {
+            width: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Adjustable Webpage</h1>
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+    </nav>
+</header>
+
+<div id="home" class="overlay">
+    <div class="container">
+        <section class="menu">
+            <div class="menu-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgqRFq42CuH2pXYFNKFjfx9qYax1ZDk_UPTqRVG3Z-Y2uredUxXstwPQmGH-WD1xvBpts&usqp=CAU" alt="image">
+                <div class="menu-item-info">
+                    <h3>Image</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+    let cart = [];
+
+    function addToCart(itemName) {
+        cart.push(itemName);
+        alert(`Added ${itemName} to cart!`);
+    }
+
+    function showPage(pageId) {
+        document.querySelectorAll('.overlay').forEach(el => el.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+    }
+    showPage('home');
+    document.getElementById('order-form')?.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Order submitted successfully!');
+    });
+</script>
+</body>
+</html>
